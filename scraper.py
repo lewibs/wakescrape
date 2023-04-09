@@ -106,7 +106,28 @@ def tabularStrategy(tables, orderedFields):
                 i += 1
 
     return tabular
-    
+
+def unnamedBoldedTableStrategy(rows):
+    res = []
+    titles = []
+    for row in rows[0].find_all("td"):
+        titles.append(row.text)
+   
+    rows = rows[1:]
+    for row in rows:
+        i = 0
+        obj = {}
+        for val in row:
+            val = cleanString(val.text)
+            if val:
+                obj[titles[i]] = val
+
+            i+=1
+
+        res.append(obj)
+
+    return res
+
 #this takes the account data and attaches it to the data object passed in
 def attachAccountData(data, id):
     params = {"id":makeId(id)}
@@ -167,13 +188,16 @@ def attachBuildingData(data, id):
 
     #third mega col
     temp = rows[15].find_all("td")[67].find_all("tr")
+    #TODO this fails to get the field Card 01 Value since the dang field is bold :angry:
     boldStrategy(data, temp)
 
     #table row with 2 col
     temp = rows[50].find("td").find_all("tr")[1:]
     data["Main and Addition Summary"] = tabularStrategy(temp, ["Story", None, "Type", "Code", "Area", "Inc"])
+    #can just remove the end since there is one more unwanted row always
+    temp = rows[61:len(rows) - 1]
+    data["Other Improvements"] = unnamedBoldedTableStrategy(temp)
 
-    print(data)
     return data
 
 #this gets all the data associated with the id and returns it
@@ -190,26 +214,24 @@ def saveData(data):
     file.write(json.dumps(data))
     file.close()
 
-getData(198345)
+def main():
+    global FAIL_COUNT
+    for id in range(1, 9999999):
+        if FAIL_COUNT >= MAX_FAIL:
+            print("Finished collecting data from wake county houses")
+            return
 
-# def main():
-#     global FAIL_COUNT
-#     for id in range(1, 9999999):
-#         if FAIL_COUNT >= MAX_FAIL:
-#             print("Finished collecting data from wake county houses")
-#             return
+        try:
+            print(f"#{makeId(id)}")
+            data = getData(id)
+            print(data)
+            saveData(data)
+            FAIL_COUNT = 0
+        except Exception as e:
+            print(e)
+            FAIL_COUNT += 1
 
-#         try:
-#             print(f"#{makeId(id)}")
-#             data = getData(id)
-#             print(data)
-#             saveData(data)
-#             FAIL_COUNT = 0
-#         except Exception as e:
-#             print(e)
-#             FAIL_COUNT += 1
+        print("\n")
 
-#         print("\n")
-
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

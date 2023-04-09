@@ -1,3 +1,94 @@
-url: https://services.wake.gov/realestate/Account.asp?id=0198345
-url: https://services.wake.gov/realestate/Building.asp?id=0198345&cd=01
-{'Real Estate ID': '0198345', 'PIN #': '0762512357', 'Location Address': '2200 TRELLIS GREEN', 'Property Description': 'PARCEL MF-1 CRESCENT ARBORS BM1993-1251', 'Property Owner': 'CRESCENT ARBORS APARTMENTS LLC', "Owner's Mailing Address": '100 CRESCENT ARBOR LN CARY NC 27518-9627', 'Property Location Address': '2200 TRELLIS GREEN CARY NC 27518-9661', 'Old Map #': '626--', 'Map/Scale': '0762 19', 'VCS': 'ASWCA01', 'City': 'CARY', 'Township': 'SWIFT CREEK', 'Land Class': 'APRTMENT', 'ETJ': 'CA', 'Zoning': 'RMFP', 'Acreage': '17.47', 'Permit Date': '12/30/2014', 'Permit #': '15-0000396', 'Deed Date': '11/30/2007', 'Book & Page': '12855 0873', 'Revenue Stamps': '36720.00', 'Pkg Sale Date': '11/30/2007', 'Pkg Sale Price': '$18,360,000', 'Total Units': '180', 'Recycle Units': '180', 'Apt/SC Sqft': '171,529', 'Heated Area': '14,672', 'Land Value Assessed': '$6,885,000', 'Bldg. Value Assessed': '$23,397,759', 'Total Value Assessed*': '$30,282,759', 'Building Location Address': '2200 TRELLIS GREEN', 'Building Description': 'CRESCENT ARBORS APTS', 'Bldg Type': '07 Garden', 'Units': '16', 'Story Height': '2 Story', 'Style': 'Conventional', 'Basement': 'Crawl Space', 'Exterior': 'Frame', 'Const Type': 'Wood Joist', 'Heating': 'Central', 'Air Cond': 'Central', 'Plumbing': 'Adequate', 'Year Blt': '1995', 'Eff Year': '2013', 'Other': 'Sprinkler Syste', 'Base Bldg Value': '$1,532,669', 'Grade': '14.69 130%', 'Cond %': 'B 96%', 'Accrued %': '96%', 'All Other Cards': '$21,484,988', 'Total Value Assessed': '$30,282,759', 'Main and Addition Summary': {'M': {'Story': '2', 'Type': 'FR/CS', 'Area': '3068'}, 'A': {'Story': '2', 'Type': 'S BR', 'Code': 'BPM', 'Area': '2134'}, 'B': {'Story': '2', 'Type': 'S BR', 'Code': 'BPM', 'Area': '2134'}}}
+#0000001
+url: https://services.wake.gov/realestate/Account.asp?id=0000001
+url: https://services.wake.gov/realestate/Building.asp?id=0000001&cd=01
+{'Real Estate ID': '0000001', 'PIN #': '1714059993', 'Location Address': '1506 WAKE FOREST RD', 'Property Description': '1506 WAKE FOREST ROAD BM1974-00494', 'Property Owner': 'NORTHGATE PROPERTIES LLC', "Owner's Mailing Address": '8465 LENTIC CT RALEIGH NC 27615-4964', 'Property Location Address': '1506 WAKE FOREST RD RALEIGH NC 27604-1331', 'Old Map #': '495-00000-0124', 'Map/Scale': '1714 09', 'VCS': 'ECRA001', 'City': 'RALEIGH', 'Township': 'RALEIGH', 'Land Class': 'VACANT', 'ETJ': 'RA', 'Zoning': 'NX-3', 'Acreage': '.32', 'Deed Date': '9/30/2020', 'Book & Page': '18105 0863', 'Total Units': '0', 'Recycle Units': '0', 'Land Value Assessed': '$112,906', 'Total Value Assessed*': '$112,906', 'Building Location Address': '1506 WAKE FOREST RD', 'Building Description': 'ECRA001', 'Total Value Assessed': '$112,906', 'Main and Addition Summary': {}, 'Other Improvements': []}
+
+
+#0000002
+url: https://services.wake.gov/realestate/Account.asp?id=0000002
+Failed getting this data. The house moved
+
+
+#0000003
+url: https://services.wake.gov/realestate/Account.asp?id=0000003
+url: https://services.wake.gov/realestate/Building.asp?id=0000003&cd=01
+{'Real Estate ID': '0000003', 'PIN #': '0778405654', 'Location Address': '6012 TRIANGLE DR A', 'Property Description': 'LO7 OLD SOUTH DEVELOPMENT CORP', 'Property Owner': 'BONES 13 LLC', "Owner's Mailing Address": '306 MIDENHALL WAY CARY NC 27513-5569', 'Property Location Address': '6012 TRIANGLE DR A RALEIGH NC 27617-4743', 'Old Map #': '298-00000-0030', 'Map/Scale': '0778 03', 'VCS': 'GWRA001', 'City': 'RALEIGH', 'Township': 'LEESVILLE', 'Land Class': 'COMMERCL', 'ETJ': 'RA', 'Zoning': 'IX-3', 'Acreage': '2.00', 'Deed Date': '3/5/2012', 'Book & Page': '14675 2635', 'Revenue Stamps': '1480.00', 'Pkg Sale Date': '3/5/2012', 'Pkg Sale Price': '$740,000', 'Total Units': '0', 'Recycle Units': '0', 'Heated Area': '4,500', 'Land Value Assessed': '$392,040', 'Bldg. Value Assessed': '$524,503', 'Total Value Assessed*': '$916,543', 'Building Location Address': '6012 TRIANGLE DR A', 'Building Description': 'J W BURRESS', 'Bldg Type': '20 Service Garage', 'Story Height': '1 Story', 'Style': 'Conventional', 'Basement': 'Crawl Space', 'Exterior': 'Metal', 'Const Type': 'Exposed Steel', 'Heating': 'Unit Heaters', 'Air Cond': 'Central', 'Plumbing': 'Adequate', 'Year Blt': '1979', 'Eff Year': '1984', 'Base Bldg Value': '$332,568', 'Grade': '29.61 110%', 'Cond %': 'B 50%', 'Market Adj.': 'O 94%', 'Accrued %': '47%', 'All Other Cards': '$352,566', 'Total Value Assessed': '$916,543', 'Main and Addition Summary': {'M': {'Story': '1', 'Type': 'ML/CS', 'Area': '4500'}, 'A': {'Story': '1', 'Type': 'CN', 'Code': '0166', 'Area': '125'}, 'B': {'Story': '1', 'Code': '0351', 'Area': '1375'}}, 'Other Improvements': []}
+
+
+#0000004
+url: https://services.wake.gov/realestate/Account.asp?id=0000004
+url: https://services.wake.gov/realestate/Building.asp?id=0000004&cd=01
+{'Real Estate ID': '0000004', 'PIN #': '1714067476', 'Location Address': '1601 WAKE FOREST RD', 'Property Description': 'LO2 PROP HARRIS WHOLESALE INC BM1988-1500', 'Property Owner': 'HARRISPARK PROPERTIES INC', "Owner's Mailing Address": '608 GASTON ST STE 200 RALEIGH NC 27603-1258', 'Property Location Address': '1601 WAKE FOREST RD RALEIGH NC 27604-1387', 'Old Map #': '495-00000-0070', 'Map/Scale': '1714 09', 'VCS': 'ECRA001', 'City': 'RALEIGH', 'Township': 'RALEIGH', 'Land Class': 'COMMERCL', 'ETJ': 'RA', 'Zoning': 'IX-3', 'Acreage': '1.38', 'Permit Date': '7/5/1995', 'Permit #': '0000023201', 'Deed Date': '1/19/2011', 'Book & Page': 'SEC-S TATE', 'Pkg Sale Date': '10/8/1984', 'Pkg Sale Price': '$185,000', 'Total Units': '0', 'Recycle Units': '0', 'Heated Area': '8,500', 'Land Value Assessed': '$245,076', 'Bldg. Value Assessed': '$374,128', 'Total Value Assessed*': '$619,204', 'Building Location Address': '1601 WAKE FOREST RD', 'Building Description': "A-ONE GLASS, AUTO AIR/RANDY'S PAINT &", 'Bldg Type': '85 Flex Warehouse', 'Story Height': '1 Story', 'Style': 'Conventional', 'Basement': 'Crawl Space', 'Exterior': 'Metal', 'Const Type': 'Exposed Steel', 'Heating': 'Unit Heaters', 'Air Cond': 'Central', 'Plumbing': 'Adequate', 'Year Blt': '1993', 'Eff Year': '1993', 'Int. Adjust.': 'INT - 12% Finished B', 'Base Bldg Value': '$719,780', 'Grade': '41.61 110%', 'Cond %': 'B 64%', 'Market Adj.': 'G 70%', 'Accrued %': '45%', 'Total Value Assessed': '$619,204', 'Main and Addition Summary': {'M': {'Story': '1', 'Type': 'ML/CS', 'Area': '8500'}}, 'Other Improvements': [{'Units': '21580', 'Des': 'SF', 'Item': 'PAVASPH', 'Code': '0030', 'Year': '1993', '%ADJ': '30', 'Value': '19420'}, {'Units': '2', 'Des': 'UN', 'Item': 'LIGHTMED', 'Code': 'REF', 'Year': '1993', '%ADJ': '100', 'Value': '0'}]}
+
+
+#0000005
+url: https://services.wake.gov/realestate/Account.asp?id=0000005
+url: https://services.wake.gov/realestate/Building.asp?id=0000005&cd=01
+{'Real Estate ID': '0000005', 'PIN #': '1714382057', 'Location Address': '1831 CAPITAL BLVD', 'Property Description': 'ADJ FAIRFIELD MOTEL EDWARDS PLOT TR32', 'Property Owner': 'MOGHADASS, INC', "Owner's Mailing Address": '1532 PROVIDENCE RD S STE 230 WAXHAW NC 28173-8313', 'Property Location Address': '1831 CAPITAL BLVD RALEIGH NC 27604-2144', 'Old Map #': '495--', 'Map/Scale': '1714 06', 'VCS': 'ECRA001', 'City': 'RALEIGH', 'Township': 'RALEIGH', 'Land Class': 'COMMERCL', 'ETJ': 'RA', 'Zoning': 'IX-3', 'Acreage': '1.11', 'Permit Date': '6/7/2006', 'Permit #': '0000053954', 'Deed Date': '6/17/2016', 'Book & Page': '16425 1667', 'Revenue Stamps': '1500.00', 'Pkg Sale Date': '6/17/2016', 'Pkg Sale Price': '$750,000', 'Total Units': '0', 'Recycle Units': '0', 'Heated Area': '3,088', 'Land Value Assessed': '$578,774', 'Bldg. Value Assessed': '$238,511', 'Total Value Assessed*': '$817,285', 'Building Location Address': '1831 CAPITAL BLVD', 'Building Description': 'ALL DAY TIRES', 'Bldg Type': '2 Service Garage', 'Story Height': '1 Story', 'Style': 'Conventional', 'Exterior': 'Brick', 'Const Type': 'Exposed Steel', 'Heating': 'Central', 'Air Cond': 'Central', 'Plumbing': 'Adequate', 'Year Blt': '1968', 'Eff Year': '1980', 'Base Bldg Value': '$510,208', 'Grade': '29.55 100%', 'Cond %': 'B 44%', 'Accrued %': '44%', 'Total Value Assessed': '$817,285', 'Main and Addition Summary': {'M': {'Story': '1', 'Type': 'BR/SL', 'Area': '3070'}, 'A': {'Story': '1', 'Type': 'OP', 'Code': '0332', 'Area': '24'}, 'B': {'Story': '1', 'Type': 'OP', 'Code': '0332', 'Area': '24'}, 'C': {'Story': '1', 'Type': 'S BR', 'Code': 'BPM', 'Area': '18'}}, 'Other Improvements': [{'Units': '18700', 'Des': 'SF', 'Item': 'PAVASPH', 'Code': '0030', 'Year': '1990', '%ADJ': '25', 'Value': '14020'}, {'Units': '7', 'Des': 'UN', 'Item': 'LIGHTMED', 'Code': 'REF', 'Year': '1968', '%ADJ': '100', 'Value': '0'}]}
+
+
+#0000006
+url: https://services.wake.gov/realestate/Account.asp?id=0000006
+Failed getting this data. The house moved
+
+
+#0000007
+url: https://services.wake.gov/realestate/Account.asp?id=0000007
+Failed getting this data. The house moved
+
+
+#0000008
+url: https://services.wake.gov/realestate/Account.asp?id=0000008
+Failed getting this data. The house moved
+
+
+#0000009
+url: https://services.wake.gov/realestate/Account.asp?id=0000009
+Failed getting this data. The house moved
+
+
+#0000010
+url: https://services.wake.gov/realestate/Account.asp?id=0000010
+Failed getting this data. The house moved
+
+
+#0000011
+url: https://services.wake.gov/realestate/Account.asp?id=0000011
+Failed getting this data. The house moved
+
+
+#0000012
+url: https://services.wake.gov/realestate/Account.asp?id=0000012
+Failed getting this data. The house moved
+
+
+#0000013
+url: https://services.wake.gov/realestate/Account.asp?id=0000013
+Failed getting this data. The house moved
+
+
+#0000014
+url: https://services.wake.gov/realestate/Account.asp?id=0000014
+Failed getting this data. The house moved
+
+
+#0000015
+url: https://services.wake.gov/realestate/Account.asp?id=0000015
+Failed getting this data. The house moved
+
+
+#0000016
+url: https://services.wake.gov/realestate/Account.asp?id=0000016
+url: https://services.wake.gov/realestate/Building.asp?id=0000016&cd=01
+{'Real Estate ID': '0000016', 'PIN #': '1713006751', 'Location Address': '609 BAILEY DR', 'Property Description': 'LO1 RCMB CITY OF RALEIGH PROPERTY BM2021-00203', 'Property Owner': 'RALEIGH CITY OF', "Owner's Mailing Address": 'PO BOX 590 RALEIGH NC 27602-0590', 'Property Location Address': '609 BAILEY DR RALEIGH NC 27610-4027', 'Old Map #': '579--', 'Map/Scale': '1713 17', 'VCS': '01RA902', 'City': 'RALEIGH', 'Township': 'RALEIGH', 'Land Class': 'EXEMPT', 'ETJ': 'RA', 'Zoning': 'R-10', 'Acreage': '13.83', 'Deed Date': '12/30/1998', 'Book & Page': '08219 1273', 'Total Units': '0', 'Recycle Units': '0', 'Land Value Assessed': '$394,155', 'Total Value Assessed*': '$394,155', 'Building Location Address': '609 BAILEY DR', 'Building Description': '01RA902', 'Total Value Assessed': '$394,155', 'Main and Addition Summary': {}, 'Other Improvements': []}
+
+
+#0000017
+url: https://services.wake.gov/realestate/Account.asp?id=0000017
+url: https://services.wake.gov/realestate/Building.asp?id=0000017&cd=01
+{'Real Estate ID': '0000017', 'PIN #': '0794817914', 'Location Address': '103 CHAMBERLAIN ST', 'Property Description': 'PT LT 28 HARRIS-CHAMBERLAIN SUB', 'Property Owner': 'SKS PROPERTIES', "Owner's Mailing Address": 'PO BOX 19808 RALEIGH NC 27619-9808', 'Property Location Address': '103 CHAMBERLAIN ST RALEIGH NC 27607-7307', 'Old Map #': 'D025-D0110-0024', 'Map/Scale': '0794 20', 'VCS': 'WCRA001', 'City': 'RALEIGH', 'Township': 'RALEIGH', 'Land Class': 'COMMERCL', 'ETJ': 'RA', 'Spec Dist(s)': 'HMD', 'Zoning': 'RX-3', 'Acreage': '.26', 'Deed Date': '4/19/1977', 'Book & Page': '02494 0595', 'Total Units': '0', 'Recycle Units': '0', 'Land Value Assessed': '$509,783', 'Bldg. Value Assessed': '$7,960', 'Total Value Assessed*': '$517,743', 'Building Location Address': '103 CHAMBERLAIN ST', 'Building Description': 'WCRA001', 'Total Value Assessed': '$517,743', 'Main and Addition Summary': {}, 'Other Improvements': [{'Units': '10620', 'Des': 'SF', 'Item': 'PAVASPH', 'Code': '0030', 'Year': '1990', '%ADJ': '25', 'Value': '7960'}]}
+
+
+#0000018
+url: https://services.wake.gov/realestate/Account.asp?id=0000018
+url: https://services.wake.gov/realestate/Building.asp?id=0000018&cd=01
