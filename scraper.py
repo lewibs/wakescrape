@@ -16,7 +16,6 @@ class Data(Enum):
     DEEDS = "Deeds"
     NOTES = "Notes"
     SALES = "ImpSales"
-    PHOTOS = "Photo"
 
 def makeId(num):
     width = 7
@@ -271,8 +270,12 @@ def getDeedData(id):
     nobadchar = str(temp[0]).replace(" ", "historical order")
     temp[0] = BeautifulSoup(nobadchar, "html.parser")
     del temp[1::2]
-    unnamedBoldedTableStrategy(data, "deeds", temp)
-    return data["deeds"]
+    unnamedBoldedTableStrategy(data, "temp", temp)
+    try:
+        return [data["temp"]]
+    except Exception as e:
+        printUnplannedError(e)
+        return []
 
 def getNotesData(id):
     data={}
@@ -288,7 +291,31 @@ def getNotesData(id):
 
     temp = rows[12:len(rows)-3]
     unnamedBoldedTableStrategy(data, "temp", temp)
-    return data["temp"]
+    try:
+        return [data["temp"]]
+    except Exception as e:
+        printUnplannedError(e)
+        return []
+
+def getSalesData(id):
+    data={}
+    params = {
+        "id": makeId(id),
+        "cd": "01"
+    }
+    print(f"url: {makeURL(Data.SALES, params)}")
+    html = makeCurlFor(Data.SALES, params)
+    soup = goldilocks(BeautifulSoup(html, "html.parser"))
+
+    rows = soup.find_all("tr")
+    temp = rows[12 :len(rows) - 4]
+    unnamedBoldedTableStrategy(data, "temp", temp)
+
+    try:
+        return [data["temp"]]
+    except Exception as e:
+        printUnplannedError(e)
+        return []
 
 #this gets all the data associated with the id and returns it
 def getData(id):
@@ -298,6 +325,7 @@ def getData(id):
     data[Data.LAND.value] = getLandData(id)
     data[Data.DEEDS.value] = getDeedData(id)
     data[Data.NOTES.value] = getNotesData(id)
+    data[Data.SALES.value] = getSalesData(id)
     return data
 
 #this takes the data and saves it
