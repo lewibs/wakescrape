@@ -4,6 +4,10 @@ from enum import Enum
 import json
 import re
 
+FAIL_COUNT = 0
+MAX_FAIL = 100
+STORAGE_DIR = "houses"
+
 class Data(Enum):
     ACCOUNT = "Account" 
     BUILDING = "Building"
@@ -29,12 +33,24 @@ def makeCurlFor(tab, id):
     url = makeURL(tab, id)
     return subprocess.check_output(f"curl {url}")
 
+def hasHouseMoved(soup):
+    head = soup.find("h1")
+
+    if head:
+        return head.text is "Object Moved"
+    else:
+        True
+    
 def attachAccountData(data, id):
     print("Getting account data from:")
     print(makeURL(Data.ACCOUNT, id))
 
     html = makeCurlFor(Data.ACCOUNT, id)
     soup = BeautifulSoup(html, "html.parser")
+    
+    if (hasHouseMoved(soup)):
+        raise Exception(f"Failed getting {Data.ACCOUNT.value} data. The house got legs and moved")
+    
     rows = soup.find_all("tr")
 
     #does re writing temp cause page misses in cashe?
@@ -70,7 +86,9 @@ def attachAccountData(data, id):
         if field and value:
             data[field] = value
 
+            
     print(f"Done getting {Data.ACCOUNT.value} data")
+
     return data
         
 def getData(id):
@@ -80,13 +98,28 @@ def getData(id):
 
 def saveData(data):
     id = data["Real Estate ID"]
-    file = open(f"data/{id}.json", "w")
+    file = open(f"{STORAGE_DIR}/{id}.json", "w")
     file.write(json.dumps(data))
     file.close()
 
-def handleId(id):
+#this will return the fail count
+def handleHouse(id):
     print(f"Starting to collect data for ID#{id}")
     saveData(getData(id))
-    print(f"Done collecting data for ID#{id}")
+    print(f"Finnished collecting data for ID#{id}")
 
-handleId(1)
+def main():
+    global FAIL_COUNT
+    for id in range(1, 9999999):
+        if FAIL_COUNT >= MAX_FAIL:
+            print("Finished collecting data from wake county houses")
+            return
+
+        try:
+            handleHouse(id)
+        except Exception as e:
+            print(e)
+            FAIL_COUNT += 1
+
+if __name__ == "__main__":
+    main()
