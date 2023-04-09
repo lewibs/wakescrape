@@ -1,1 +1,252 @@
-{"Real Estate ID": "0000001", "PIN #": "1714059993", "Location Address": "1506 WAKE FOREST RD", "Property Description": "1506 WAKE FOREST ROAD BM1974-00494", "Property Owner": "NORTHGATE PROPERTIES LLC", "Owner's Mailing Address": "8465 LENTIC CT RALEIGH NC 27615-4964", "Property Location Address": "1506 WAKE FOREST RD RALEIGH NC 27604-1331", "Old Map #": "495-00000-0124", "Map/Scale": "1714 09", "VCS": "ECRA001", "City": "RALEIGH", "Township": "RALEIGH", "Land Class": "VACANT", "ETJ": "RA", "Zoning": "NX-3", "Acreage": ".32", "Deed Date": "9/30/2020", "Book & Page": "18105 0863", "Total Units": "0", "Recycle Units": "0", "Land Value Assessed": "$112,906", "Total Value Assessed*": "$112,906", "Building Location Address": "1506 WAKE FOREST RD", "Building Description": "ECRA001", "Total Value Assessed": "$112,906", "Main and Addition Summary": {}, "Other Improvements": []}
+{
+  "Account": {
+    "Real Estate ID": "0000001",
+    "PIN #": "1714059993",
+    "Location Address": "1506 WAKE FOREST RD",
+    "Property Description": "1506 WAKE FOREST ROAD BM1974-00494",
+    "Property Owner": "NORTHGATE PROPERTIES LLC",
+    "Owner's Mailing Address": "8465 LENTIC CT RALEIGH NC 27615-4964",
+    "Property Location Address": "1506 WAKE FOREST RD RALEIGH NC 27604-1331",
+    "Old Map #": "495-00000-0124",
+    "Map/Scale": "1714 09",
+    "VCS": "ECRA001",
+    "City": "RALEIGH",
+    "Township": "RALEIGH",
+    "Land Class": "VACANT",
+    "ETJ": "RA",
+    "Zoning": "NX-3",
+    "Acreage": ".32",
+    "Deed Date": "9/30/2020",
+    "Book & Page": "18105 0863",
+    "Total Units": "0",
+    "Recycle Units": "0",
+    "Land Value Assessed": "$112,906",
+    "Total Value Assessed*": "$112,906"
+  },
+  "Building": {
+    "Building Location Address": "1506 WAKE FOREST RD",
+    "Building Description": "ECRA001",
+    "Land Value Assessed": "$112,906",
+    "Total Value Assessed": "$112,906",
+    "Main and Addition Summary": {},
+    "Other Improvements": []
+  },
+  "Land": {
+    "Land Class": "VACANT",
+    "Soil Class": "4",
+    "Deeded Acres": "0.32",
+    "Land Value Detail - Market": [
+      {
+        "Sch": "5",
+        "ETJ": "RA",
+        "Zoning": "NX-3",
+        "Description": "BSITE1",
+        "Units": "13,939",
+        "Rate": "$9.00",
+        "Cnd%": "90",
+        "Reason": "SHAPE",
+        "Value": "$112,906"
+      }
+    ],
+    "Total Land Value Assessed": "$112,906"
+  },
+  "Deeds": [
+    [
+      {
+        "historical order": "Current",
+        "Owner Name": "NORTHGATE PROPERTIES LLC",
+        "Type": "QCD",
+        "% Own": "ALL",
+        "Book": "18105",
+        "Page": "0863",
+        "Date": "09-30-2020"
+      },
+      {
+        "historical order": "1 Back",
+        "Owner Name": "FISHER, GEORGE NORMAN",
+        "% Own": "ALL",
+        "Book": "11259",
+        "Page": "2626",
+        "Date": "03-11-2005"
+      },
+      {
+        "historical order": "2 Back",
+        "Owner Name": "FISHER, WINFIELD THOMAS JR",
+        "Type": "T-COMM",
+        "% Own": "ALL",
+        "Book": "04173",
+        "Page": "0095",
+        "Date": "12-23-1987"
+      },
+      {
+        "historical order": "3 BackFISHER, WINFIELD THOMAS JRT-COMM10/11 04065078907-17-1987 FISHER, GEORGE NORMAN ABOVE FISHER, BLUMA A 1/11"
+      },
+      {
+        "Owner Name": "FISHER, GEORGE NORMAN",
+        "% Own": "ABOVE"
+      },
+      {
+        "historical order": "4 BackABC FOOD MARKET INC. ALL 01957027901-01-1970"
+      },
+      {
+        "historical order": "5 BackA B C FOOD MARKET INC ALL 01957047901-01-1970"
+      }
+    ]
+  ],
+  "Notes": [
+    [
+      {
+        "Date": "01-01-2000",
+        "Line": "1",
+        "Notes": "OWNS ADJOINING PARCEL"
+      },
+      {
+        "Date": "11-17-1989",
+        "Line": "1",
+        "Notes": "ID2 COMBINED HERE & PT LT ADDED TO ID128354 NCIV F/84"
+      }
+    ]
+  ],
+  "ImpSales": [
+    [
+      {
+        "Sale": "Subj",
+        "Account": "0000001",
+        "Location Address": "1506 WAKE FOREST RD",
+        "Price": "$0"
+      },
+      {
+        "Sale": "1",
+        "Account": "0495898",
+        "Location Address": "817 NEW BERN AVE",
+        "Dist": "1.3",
+        "Type": "Typical Office",
+        "Built": "1984",
+        "Size": "5,208",
+        "Sty Hgt": "2 Story",
+        "Price": "$1,118,000",
+        "Date": "03/17/23"
+      },
+      {
+        "Sale": "2",
+        "Account": "0328918",
+        "Location Address": "3410 YONKERS RD",
+        "Dist": "2.2",
+        "Type": "Warehouse",
+        "Built": "1973",
+        "Size": "41,492",
+        "Sty Hgt": "1 Story",
+        "Price": "$4,582,000",
+        "Date": "02/14/23"
+      },
+      {
+        "Sale": "3",
+        "Account": "0025636",
+        "Location Address": "109 S TARBORO ST",
+        "Dist": "1.4",
+        "Type": "Single Family",
+        "Built": "1940",
+        "Size": "750",
+        "Sty Hgt": "1 Story",
+        "Price": "$232,000",
+        "Date": "02/03/23"
+      },
+      {
+        "Sale": "4",
+        "Account": "0008714",
+        "Location Address": "1830 NEW BERN AVE",
+        "Dist": "1.5",
+        "Type": "CONVENIENCE STO",
+        "Built": "1970",
+        "Size": "2,352",
+        "Sty Hgt": "1 Story",
+        "Price": "$783,500",
+        "Date": "02/03/23"
+      },
+      {
+        "Sale": "5",
+        "Account": "0143630",
+        "Location Address": "2810 YONKERS RD",
+        "Dist": "1.7",
+        "Type": "Flex Warehouse",
+        "Built": "1985",
+        "Size": "50,330",
+        "Sty Hgt": "1 Story",
+        "Price": "$5,400,000",
+        "Date": "01/31/23"
+      },
+      {
+        "Sale": "6",
+        "Account": "0358140",
+        "Location Address": "2499 RATCHFORD DR",
+        "Dist": "1.3",
+        "Type": "Typical Office",
+        "Built": "1995",
+        "Size": "1,296",
+        "Sty Hgt": "1 Story",
+        "Price": "$5,900,000",
+        "Date": "01/27/23"
+      },
+      {
+        "Sale": "7",
+        "Account": "0012573",
+        "Location Address": "1839 CAPITAL BLVD",
+        "Dist": "0.6",
+        "Type": "Bank Building",
+        "Built": "1985",
+        "Size": "2,600",
+        "Sty Hgt": "1 Story",
+        "Price": "$1,825,000",
+        "Date": "12/16/22"
+      },
+      {
+        "Sale": "8",
+        "Account": "0016358",
+        "Location Address": "1500 NEW BERN AVE",
+        "Dist": "1.4",
+        "Type": "Single Tenant",
+        "Built": "1954",
+        "Size": "1,310",
+        "Sty Hgt": "1 Story",
+        "Price": "$350,000",
+        "Date": "11/21/22"
+      },
+      {
+        "Sale": "9",
+        "Account": "0024418",
+        "Location Address": "2400 CRABTREE BLVD",
+        "Dist": "0.9",
+        "Type": "CONVENIENCE STO",
+        "Built": "1967",
+        "Size": "2,000",
+        "Sty Hgt": "1 Story",
+        "Price": "$930,000",
+        "Date": "10/26/22"
+      },
+      {
+        "Sale": "10",
+        "Account": "0039584",
+        "Location Address": "620 CUTLER ST",
+        "Dist": "2.3",
+        "Type": "Stores w/Apts",
+        "Built": "1985",
+        "Size": "3,432",
+        "Sty Hgt": "2 Story",
+        "Price": "$905,000",
+        "Date": "10/25/22"
+      },
+      {
+        "Sale": "11",
+        "Account": "0090699",
+        "Location Address": "734 ROCK QUARRY RD",
+        "Dist": "2.1",
+        "Type": "Typical Office",
+        "Built": "1974",
+        "Size": "1,175",
+        "Sty Hgt": "1 Story",
+        "Price": "$150,000",
+        "Date": "09/09/22"
+      }
+    ]
+  ]
+}

@@ -334,12 +334,12 @@ def saveData(data, filename=None):
     if filename:
         id = filename
     else:
-        id = data["Real Estate ID"]
+        id = data["Account"]["Real Estate ID"]
 
     if not id:
         raise Exception("FAIL: id did not exist")
     
-    file = open(f"{STORAGE_DIR}/{filename}.json", "w")
+    file = open(f"{STORAGE_DIR}/{id}.json", "w")
     file.write(json.dumps(data, indent=2))
     file.close()
 
