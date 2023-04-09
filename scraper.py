@@ -5,7 +5,7 @@ import json
 import re
 
 FAIL_COUNT = 0
-MAX_FAIL = 100
+MAX_FAIL = 50
 STORAGE_DIR = "houses"
 
 class Data(Enum):
@@ -100,7 +100,9 @@ def saveData(data):
 
 #this will return the fail count
 def handleHouse(id):
-    saveData(getData(id))
+    data = getData(id)
+    print(json.dumps(data))
+    saveData(data)
 
 def main():
     global FAIL_COUNT
@@ -112,6 +114,7 @@ def main():
         try:
             print(f"#{makeId(id)}")
             handleHouse(id)
+            FAIL_COUNT = 0
         except Exception as e:
             print(e)
             FAIL_COUNT += 1
