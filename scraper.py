@@ -330,7 +330,7 @@ def getData(id):
     return data
 
 #this takes the data and saves it
-def saveData(data, filename):
+def saveData(data, filename=None):
     if filename:
         id = filename
     else:
