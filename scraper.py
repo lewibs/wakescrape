@@ -112,10 +112,11 @@ def main():
         try:
             print(f"#{makeId(id)}")
             handleHouse(id)
-            print("\n")
         except Exception as e:
             print(e)
             FAIL_COUNT += 1
+
+        print("\n")
 
 if __name__ == "__main__":
     main()
