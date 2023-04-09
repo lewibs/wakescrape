@@ -274,6 +274,22 @@ def getDeedData(id):
     unnamedBoldedTableStrategy(data, "deeds", temp)
     return data["deeds"]
 
+def getNotesData(id):
+    data={}
+    params = {
+        "id": makeId(id),
+        "cd": "01"
+    }
+    print(f"url: {makeURL(Data.NOTES, params)}")
+    html = makeCurlFor(Data.NOTES, params)
+    soup = goldilocks(BeautifulSoup(html, "html.parser"))
+
+    rows = soup.find_all("tr")
+
+    temp = rows[12:len(rows)-3]
+    unnamedBoldedTableStrategy(data, "temp", temp)
+    return data["temp"]
+
 #this gets all the data associated with the id and returns it
 def getData(id):
     data = {}
@@ -281,6 +297,7 @@ def getData(id):
     data[Data.BUILDING.value] = getBuildingData(id)
     data[Data.LAND.value] = getLandData(id)
     data[Data.DEEDS.value] = getDeedData(id)
+    data[Data.NOTES.value] = getNotesData(id)
     return data
 
 #this takes the data and saves it
