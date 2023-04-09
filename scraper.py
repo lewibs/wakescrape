@@ -34,12 +34,17 @@ def makeCurlFor(tab, params):
     url = makeURL(tab, params)
     return subprocess.check_output(f"curl -s {url}")
 
+#used for testing
 def printSoup(soup):
     i = 0
     for tag in soup:
         print(f"\n\ntag #{i}")
         print(tag)
         i += 1
+
+def printUnplannedError(e):
+    print("Unplanned error")
+    print(e)
 
 def goldilocks(soup):
     head = soup.find("h1")
@@ -51,85 +56,106 @@ def goldilocks(soup):
 
 #this is used for when you have a tr and want to parse three things and get the bold value and the unbold field
 def boldStrategy(data, soupArr):
-    for tag in soupArr:
-        field = None
-        value = None
+    try:
+        for tag in soupArr:
+            field = None
+            value = None
 
-        cols = tag.find_all("td")
+            cols = tag.find_all("td")
 
-        for col in cols:
-            if col.find("b"):
-                value = cleanString(col.text)
-            elif not field:
-                field = cleanString(col.text)
+            for col in cols:
+                if col.find("b"):
+                    value = cleanString(col.text)
+                elif not field:
+                    field = cleanString(col.text)
 
-        if field and value:
-            data[field] = value
+            if field and value:
+                data[field] = value
+    except Exception as e:
+        printUnplannedError(e)
 
 #this is for when you have a perfect every other array of field then value
 def everyOtherStrategy(data, soupArr):
-    for tag in soupArr[::2]:
-        value = tag.find_next_sibling()
-        if value:
-            value = cleanString(value.text)
-            if value and tag.text:
-                data[tag.text] = value
+    try:
+        for tag in soupArr[::2]:
+            value = tag.find_next_sibling()
+            if value:
+                value = cleanString(value.text)
+                if value and tag.text:
+                    data[tag.text] = value
+    except Exception as e:
+        printUnplannedError(e)
 
 #takes a long string from a table with headers and rows and then makes a nested object and returns it
-def tabularStrategy(tables, orderedFields):
-    tabular = {}
+def tabularStrategy(data, field, tables, orderedFields):
+    try:
+        tabular = {}
 
-    for table in tables:
-        cols = table.find_all("td")
-        i = 0
-        max = len(orderedFields)
-        ticker = None
+        for table in tables:
+            cols = table.find_all("td")
+            i = 0
+            max = len(orderedFields)
+            ticker = None
 
-        if len(table) < len(orderedFields):
-            continue
+            if len(table) < len(orderedFields):
+                continue
 
-        for colidx in range(len(orderedFields) + 1):
-            col = cols[colidx]
-            if i == 0:
-                ticker = cleanString(col.text)
-                tabular[ticker] = {}
-            else:
-                value = cleanString(col.text)
-                field = orderedFields[i - 1]
+            for colidx in range(len(orderedFields) + 1):
+                col = cols[colidx]
+                if i == 0:
+                    ticker = cleanString(col.text)
+                    tabular[ticker] = {}
+                else:
+                    value = cleanString(col.text)
+                    field = orderedFields[i - 1]
 
-                if value and field:
-                    tabular[ticker][field] = value
+                    if value and field:
+                        tabular[ticker][field] = value
 
-            if i >= max:
-                i = 0
-            else:
-                i += 1
+                if i >= max:
+                    i = 0
+                else:
+                    i += 1
 
-    return tabular
+        return tabular
+    except Exception as e:
+        printUnplannedError(e)
 
-def unnamedBoldedTableStrategy(rows):
-    res = []
-    titles = []
-    for row in rows[0].find_all("td"):
-        titles.append(row.text)
-   
-    rows = rows[1:]
-    for row in rows:
-        i = 0
-        obj = {}
-        for val in row:
-            val = cleanString(val.text)
-            if val:
-                obj[titles[i]] = val
+def unnamedBoldedTableStrategy(data, field, rows):
+    try:
+        res = []
+        titles = []
+        for row in rows[0].find_all("td"):
+            titles.append(row.text)
+    
+        rows = rows[1:]
+        for row in rows:
+            i = 0
+            obj = {}
+            for val in row:
+                val = cleanString(val.text)
+                if val:
+                    obj[titles[i]] = val
 
-            i+=1
+                i+=1
 
-        res.append(obj)
+            res.append(obj)
 
-    return res
+        data[field] = res
+    except Exception as e:
+        printUnplannedError(e)
+
+def attachData(data, field, value):
+    try:
+        value = cleanString(value)
+        if field and value:
+            data[field] = value
+    except Exception as e:
+        printUnplannedError(e)
 
 #this takes the account data and attaches it to the data object passed in
-def attachAccountData(data, id):
+def getAccountData(id):
+    data = {}
     params = {"id":makeId(id)}
     print(f"url: {makeURL(Data.ACCOUNT, params)}")
     html = makeCurlFor(Data.ACCOUNT, params)
@@ -139,28 +165,29 @@ def attachAccountData(data, id):
 
     #does re writing temp cause page misses in cashe?
     temp = rows[3].find_all("b")
-    data["Real Estate ID"] = cleanString(temp[0].text)
-    data["PIN #"] = cleanString(temp[1].text)
+    attachData(data, "Real Estate ID", temp[0].text)
+    attachData(data, "PIN #", temp[1].text)
 
     temp = rows[7].find_all("b")
-    data["Location Address"] = cleanString(temp[0].text)
-    data["Property Description"] = cleanString(temp[1].text)
+    attachData(data, "Location Address", temp[0].text)
+    attachData(data, "Property Description", temp[1].text)
 
     temp = rows[11].find("b")
-    data["Property Owner"] = cleanString(temp.text)
+    attachData(data, "Property Owner", temp.text)
 
     temp = rows[9].find_all("b")
     # i think using clean string once and then three strips is faster then clean string twice with one strip. not sure though
-    data["Owner's Mailing Address"] = cleanString(f"{temp[2].text.strip()} {temp[3].text.strip()}", strip=False)
-    data["Property Location Address"] = cleanString(f"{temp[5].text.strip()} {temp[6].text.strip()}", strip=False)
+    attachData(data, "Owner's Mailing Address", f"{temp[2].text.strip()} {temp[3].text.strip()}")
+    attachData(data, "Property Location Address", f"{temp[5].text.strip()} {temp[6].text.strip()}")
 
     temp = rows[22].find_all("tr")
     boldStrategy(data, temp)
 
     return data
 
-
-def attachBuildingData(data, id):
+#this gets the data about the building
+def getBuildingData(id):
+    data = {}
     params = {
         "id": makeId(id),
         "cd": "01"
@@ -172,8 +199,8 @@ def attachBuildingData(data, id):
     rows = soup.find_all("tr")
 
     temp = rows[7].find_all("td")
-    data["Building Location Address"] = cleanString(temp[3].text)
-    data["Building Description"] = cleanString(temp[8].text)
+    attachData(data, "Building Location Address", temp[3].text)
+    attachData(data, "Building Description", temp[8].text)
 
     #first mega col
     temp = rows[15].find("td").find_all("tr")
@@ -193,23 +220,56 @@ def attachBuildingData(data, id):
 
     #table row with 2 col
     temp = rows[50].find("td").find_all("tr")[1:]
-    data["Main and Addition Summary"] = tabularStrategy(temp, ["Story", None, "Type", "Code", "Area", "Inc"])
+    tabularStrategy(data, "Main and Addition Summary", temp, ["Story", None, "Type", "Code", "Area", "Inc"])
     #can just remove the end since there is one more unwanted row always
     temp = rows[61:len(rows) - 1]
-    data["Other Improvements"] = unnamedBoldedTableStrategy(temp)
+    unnamedBoldedTableStrategy(data, "Other Improvements", temp)
+
+    return data
+
+def getLandData(id):
+    data={}
+    params = {
+        "id": makeId(id),
+        "cd": "01"
+    }
+    print(f"url: {makeURL(Data.LAND, params)}")
+    html = makeCurlFor(Data.LAND, params)
+    soup = goldilocks(BeautifulSoup(html, "html.parser"))
+
+    rows = soup.find_all("tr")
+    temp = rows[9].find_all("td")
+
+    attachData(data, "Land Class", temp[2].text)
+    attachData(data, "Soil Class", temp[5].text)
+    attachData(data, "Deeded Acres", temp[9].text)
+    attachData(data, "Calculated Acres", temp[12].text)
+    attachData(data, "Farm Use Year", temp[16].text)
+    attachData(data, "Farm Use Flag", temp[19].text)
+
+    temp = [rows[17]] + rows[19:len(rows) - 5]
+    unnamedBoldedTableStrategy(data, "Land Value Detail - Market", temp)
+
+    temp = rows[16].find_all("td")
+    attachData(data, "Total Land Value Assessed", temp[len(temp)-1].text)
 
     return data
 
 #this gets all the data associated with the id and returns it
 def getData(id):
     data = {}
-    attachAccountData(data, id)
-    attachBuildingData(data, id)
+    data[Data.ACCOUNT.value] = getAccountData(id)
+    data[Data.BUILDING.value] = getBuildingData(id)
+    data[Data.LAND.value] = getLandData(id)
     return data
 
 #this takes the data and saves it
 def saveData(data):
     id = data["Real Estate ID"]
+    
+    if not id:
+        raise Exception("FAIL: id did not exist")
+    
     file = open(f"{STORAGE_DIR}/{id}.json", "w")
     file.write(json.dumps(data))
     file.close()
