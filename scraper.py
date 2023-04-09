@@ -114,6 +114,7 @@ def main():
             handleHouse(id)
             print("\n")
         except Exception as e:
+            print(e)
             FAIL_COUNT += 1
 
 if __name__ == "__main__":
