@@ -31,7 +31,7 @@ def cleanString(string, strip=True):
 
 def makeCurlFor(tab, id):
     url = makeURL(tab, id)
-    return subprocess.check_output(f"curl {url}")
+    return subprocess.check_output(f"curl -s {url}")
 
 def hasHouseMoved(soup):
     head = soup.find("h1")
@@ -42,8 +42,7 @@ def hasHouseMoved(soup):
         True
     
 def attachAccountData(data, id):
-    print("Getting account data from:")
-    print(makeURL(Data.ACCOUNT, id))
+    print(f"url: {makeURL(Data.ACCOUNT, id)}")
 
     html = makeCurlFor(Data.ACCOUNT, id)
     soup = BeautifulSoup(html, "html.parser")
@@ -86,9 +85,6 @@ def attachAccountData(data, id):
         if field and value:
             data[field] = value
 
-            
-    print(f"Done getting {Data.ACCOUNT.value} data")
-
     return data
         
 def getData(id):
@@ -104,9 +100,7 @@ def saveData(data):
 
 #this will return the fail count
 def handleHouse(id):
-    print(f"Starting to collect data for ID#{id}")
     saveData(getData(id))
-    print(f"Finnished collecting data for ID#{id}")
 
 def main():
     global FAIL_COUNT
@@ -116,9 +110,10 @@ def main():
             return
 
         try:
+            print(f"#{makeId(id)}")
             handleHouse(id)
+            print("\n")
         except Exception as e:
-            print(e)
             FAIL_COUNT += 1
 
 if __name__ == "__main__":
