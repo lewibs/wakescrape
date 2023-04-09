@@ -4,6 +4,7 @@ from enum import Enum
 import json
 import re
 import urllib.parse
+import os
 
 FAIL_COUNT = 0
 MAX_FAIL = 50
@@ -329,21 +330,44 @@ def getData(id):
     return data
 
 #this takes the data and saves it
-def saveData(data):
-    id = data["Real Estate ID"]
+def saveData(data, filename):
+    if filename:
+        id = filename
+    else:
+        id = data["Real Estate ID"]
 
     if not id:
         raise Exception("FAIL: id did not exist")
     
-    file = open(f"{STORAGE_DIR}/{id}.json", "w")
-    file.write(json.dumps(data))
+    file = open(f"{STORAGE_DIR}/{filename}.json", "w")
+    file.write(json.dumps(data, indent=2))
     file.close()
+
+def mergeFiles():
+    data = []
+    # Set the directory containing the JSON files
+
+    print("Starting to merge all files...")
+    # Loop through all the files in the directory
+    for filename in os.listdir(STORAGE_DIR):
+        # Check that the file is a JSON file
+        if filename.endswith(".json"):
+            # Read the JSON data from the file
+            with open(os.path.join(STORAGE_DIR, filename)) as f:
+                json_data = json.load(f)
+                # Add the JSON data to the master array
+                data.append(json_data)
+
+    # Write the master array to a file
+    saveData(data, "dump")
+    print("done.")
 
 def main():
     global FAIL_COUNT
     for id in range(1, 9999999):
         if FAIL_COUNT >= MAX_FAIL:
-            print("Finished collecting data from wake county houses")
+            print("Finished collecting data from wake county houses into private files")
+            mergeFiles()
             return
 
         try:
@@ -359,4 +383,4 @@ def main():
         print("\n")
 
 if __name__ == "__main__":
-    main()
+    mergeFiles()
