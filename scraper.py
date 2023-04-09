@@ -33,22 +33,20 @@ def makeCurlFor(tab, id):
     url = makeURL(tab, id)
     return subprocess.check_output(f"curl -s {url}")
 
-def hasHouseMoved(soup):
+def goldilocks(soup):
     head = soup.find("h1")
 
-    if head:
-        return head.text is "Object Moved"
-    else:
-        True
+    if head and head.text is "Object Moved":
+        raise Exception("Failed getting this data. The house moved")
+    
+    return soup
     
 def attachAccountData(data, id):
     print(f"url: {makeURL(Data.ACCOUNT, id)}")
 
     html = makeCurlFor(Data.ACCOUNT, id)
-    soup = BeautifulSoup(html, "html.parser")
-    
-    if (hasHouseMoved(soup)):
-        raise Exception(f"Failed getting {Data.ACCOUNT.value} data. The house got legs and moved")
+    soup = goldilocks(BeautifulSoup(html, "html.parser"))
+
     
     rows = soup.find_all("tr")
 
@@ -98,12 +96,6 @@ def saveData(data):
     file.write(json.dumps(data))
     file.close()
 
-#this will return the fail count
-def handleHouse(id):
-    data = getData(id)
-    print(json.dumps(data))
-    saveData(data)
-
 def main():
     global FAIL_COUNT
     for id in range(1, 9999999):
@@ -113,7 +105,9 @@ def main():
 
         try:
             print(f"#{makeId(id)}")
-            handleHouse(id)
+            data = getData(id)
+            print(json.dumps(data))
+            saveData(data)
             FAIL_COUNT = 0
         except Exception as e:
             print(e)
