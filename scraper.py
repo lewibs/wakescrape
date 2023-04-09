@@ -29,10 +29,12 @@ def makeCurlFor(tab, id):
     url = makeURL(tab, id)
     return subprocess.check_output(f"curl {url}")
 
-def getAccountJSON(id):
+def attachAccountData(data, id):
+    print("Getting account data from:")
+    print(makeURL(Data.ACCOUNT, id))
+
     html = makeCurlFor(Data.ACCOUNT, id)
     soup = BeautifulSoup(html, "html.parser")
-    data = {}
     rows = soup.find_all("tr")
 
     #does re writing temp cause page misses in cashe?
@@ -54,7 +56,6 @@ def getAccountJSON(id):
 
     temp = rows[22].find_all("tr")
 
-    i = 0
     for tag in temp:
         tds = tag.find_all("td")
         field = None
@@ -69,10 +70,23 @@ def getAccountJSON(id):
         if field and value:
             data[field] = value
 
-    print(json.dumps(data))
+    print(f"Done getting {Data.ACCOUNT.value} data")
+    return data
         
+def getData(id):
+    data = {}
+    attachAccountData(data, id)
+    return data
 
-    
+def saveData(data):
+    id = data["Real Estate ID"]
+    file = open(f"data/{id}.json", "w")
+    file.write(json.dumps(data))
+    file.close()
 
-#this is the thing
-getAccountJSON(1)
+def handleId(id):
+    print(f"Starting to collect data for ID#{id}")
+    saveData(getData(id))
+    print(f"Done collecting data for ID#{id}")
+
+handleId(1)
