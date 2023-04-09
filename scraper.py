@@ -117,7 +117,7 @@ def tabularStrategy(data, field, tables, orderedFields):
                 else:
                     i += 1
 
-        return tabular
+        data[field] = tabular
     except Exception as e:
         printUnplannedError(e)
 
@@ -255,18 +255,38 @@ def getLandData(id):
 
     return data
 
+def getDeedData(id):
+    data={}
+    params = {
+        "id": makeId(id),
+        "cd": "01"
+    }
+    print(f"url: {makeURL(Data.DEEDS, params)}")
+    html = makeCurlFor(Data.DEEDS, params)
+    soup = goldilocks(BeautifulSoup(html, "html.parser"))
+
+    rows = soup.find_all("tr")
+    temp = rows[10:len(rows)-3]
+    
+    nobadchar = str(temp[0]).replace(" ", "historical order")
+    temp[0] = BeautifulSoup(nobadchar, "html.parser")
+    del temp[1::2]
+    unnamedBoldedTableStrategy(data, "deeds", temp)
+    return data["deeds"]
+
 #this gets all the data associated with the id and returns it
 def getData(id):
     data = {}
     data[Data.ACCOUNT.value] = getAccountData(id)
     data[Data.BUILDING.value] = getBuildingData(id)
     data[Data.LAND.value] = getLandData(id)
+    data[Data.DEEDS.value] = getDeedData(id)
     return data
 
 #this takes the data and saves it
 def saveData(data):
     id = data["Real Estate ID"]
-    
+
     if not id:
         raise Exception("FAIL: id did not exist")
     
