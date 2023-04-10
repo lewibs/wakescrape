@@ -5,6 +5,7 @@ import json
 import re
 import urllib.parse
 import os
+import sys
 
 FAIL_COUNT = 0
 MAX_FAIL = 50
@@ -363,11 +364,21 @@ def mergeFiles():
     print("done.")
 
 def main():
+    start = 1
+    end = 9999999
+
+    if len(sys.argv) > 2:
+        if sys.argv[1]:
+            start = int(sys.argv[1])
+
+        if sys.argv[2]:
+            end = int(sys.argv[2])
+
     global FAIL_COUNT
-    for id in range(1, 9999999):
+    for id in range(start, end):
         if FAIL_COUNT >= MAX_FAIL:
             print("Finished collecting data from wake county houses into private files")
-            mergeFiles()
+            #mergeFiles()
             return
 
         try:
