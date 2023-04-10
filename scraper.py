@@ -8,7 +8,7 @@ import os
 import sys
 
 FAIL_COUNT = 0
-MAX_FAIL = 50
+MAX_FAIL = 200
 STORAGE_DIR = "houses"
 
 class Data(Enum):
