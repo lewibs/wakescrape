@@ -375,7 +375,7 @@ def main():
             end = int(sys.argv[2])
 
     global FAIL_COUNT
-    for id in range(start, end):
+    for id in range(start, end + 1):
         if FAIL_COUNT >= MAX_FAIL:
             print("Finished collecting data from wake county houses into private files")
             #mergeFiles()
