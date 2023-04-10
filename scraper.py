@@ -274,7 +274,7 @@ def getDeedData(id):
     del temp[1::2]
     unnamedBoldedTableStrategy(data, "temp", temp)
     try:
-        return [data["temp"]]
+        return data["temp"]
     except Exception as e:
         printUnplannedError(e)
         return []
@@ -294,7 +294,7 @@ def getNotesData(id):
     temp = rows[12:len(rows)-3]
     unnamedBoldedTableStrategy(data, "temp", temp)
     try:
-        return [data["temp"]]
+        return data["temp"]
     except Exception as e:
         printUnplannedError(e)
         return []
@@ -314,7 +314,7 @@ def getSalesData(id):
     unnamedBoldedTableStrategy(data, "temp", temp)
 
     try:
-        return [data["temp"]]
+        return data["temp"]
     except Exception as e:
         printUnplannedError(e)
         return []
